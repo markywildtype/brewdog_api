@@ -2,8 +2,21 @@ const app = function () {
   const url = "https://api.punkapi.com/v2/beers"
   requestBeerData(url, requestComplete);
 
-  // const beerList = document.getElementById('beer-list');
 
+  const savedBeerJSON = localStorage.getItem('All beers');
+  const savedBeerArray = JSON.parse(savedBeerJSON);
+
+  const beerPicker = function(){
+
+        // if(beer.name = this.name){
+        //   populateBeerList(beer);
+        // appendInfo(beer.name, beer.image_url);
+      // }
+  //   });
+  }
+
+  const selectBeer = document.querySelector('#choose-beer');
+  selectBeer.addEventListener('change', beerPicker)
 };
 
 
@@ -18,8 +31,10 @@ const requestBeerData = function(url, callback){
 const requestComplete = function(){
   if(this.status !== 200) return;
   const jsonString = this.responseText;
+  localStorage.setItem('All beers', jsonString);
   const beerArray = JSON.parse(jsonString);
   getBeerInfo(beerArray);
+  populateSelector(beerArray);
 }
 
 //Data handling
@@ -44,9 +59,20 @@ const getBeerInfo = function(array){
   array.forEach(function(beer){
     populateBeerList(beer);
   });
-
-
 }
+// Selector
+const populateSelector = function(array){
+  const selectBeer = document.getElementById('choose-beer');
+  array.forEach(function(item, index){
+    const option = document.createElement('option');
+    option.innerText = item.name;
+    selectBeer.appendChild(option);
+  });
+}
+
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', app);
