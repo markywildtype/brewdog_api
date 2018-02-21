@@ -2,7 +2,7 @@ const app = function () {
   const url = "https://api.punkapi.com/v2/beers"
   requestBeerData(url, requestComplete);
 
-  const beerList = document.getElementById('beer-list');
+  // const beerList = document.getElementById('beer-list');
 
 };
 
@@ -19,11 +19,23 @@ const requestComplete = function(){
   if(this.status !== 200) return;
   const jsonString = this.responseText;
   const beerArray = JSON.parse(jsonString);
-  populateBeerList(beerArray);
+  getBeerInfo(beerArray);
 }
 
 //Data handling
-const populateBeerList = function(){
+const populateBeerList = function(beer){
+  const beerList = document.getElementById('beer-list');
+  const nameLi = document.createElement('li');
+  nameLi.innerText = beer.name;
+  beerList.appendChild(nameLi);
+}
+
+const getBeerInfo = function(array){
+  array.forEach(function(beer){
+    populateBeerList(beer);
+  });
+
+
 
 }
 
