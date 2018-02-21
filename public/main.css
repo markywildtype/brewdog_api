@@ -1,1 +1,28 @@
+body {
+  font-family: "Avenir", sans-serif;
+}
 
+h1 {
+  background-color: #77abff;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+article {
+  height: auto;
+  width: 250px;
+  margin: 10px;
+  background-color: #77abff;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+article p {
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+#beer-list {
+  display: flex;
+  flex-wrap: wrap;
+}

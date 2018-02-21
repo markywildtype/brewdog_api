@@ -25,17 +25,19 @@ const requestComplete = function(){
 //Data handling
 const appendInfo = function(name, image){
   const beerList = document.getElementById('beer-list');
-  beerList.appendChild(name);
-  beerList.appendChild(image);
+  const beerArticle = document.createElement('article');
+  beerArticle.appendChild(name);
+  beerArticle.appendChild(image);
+  beerList.appendChild(beerArticle);
 }
 
 const populateBeerList = function(beer){
-  const nameLi = document.createElement('li');
-  nameLi.innerText = beer.name;
-  const imageLi = document.createElement('img');
-  imageLi.src = beer.image_url
-  imageLi.height = 200;
-  appendInfo(nameLi, imageLi)
+  const namePTag = document.createElement('p');
+  namePTag.innerText = beer.name;
+  const imageItem = document.createElement('img');
+  imageItem.src = beer.image_url
+  imageItem.height = 200;
+  appendInfo(namePTag, imageItem)
 }
 
 const getBeerInfo = function(array){
