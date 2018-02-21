@@ -2,18 +2,18 @@ const app = function () {
   const url = "https://api.punkapi.com/v2/beers"
   requestBeerData(url, requestComplete);
 
-
   const savedBeerJSON = localStorage.getItem('All beers');
   const savedBeerArray = JSON.parse(savedBeerJSON);
 
+  //beer picker dropdown
   const beerPicker = function(){
     savedBeerArray.forEach(function(beer){
-      console.log(beer.name);
-      console.log(this.value);
+      const beerList = document.getElementById('beer-list');
       if(beer.name === this.value){
-        const beerList = document.getElementById('beer-list');
         beerList.innerHTML = " ";
         populateBeerList(beer);
+      } else if(this.value === "All our beers"){
+        document.location.reload(false);
       }
     }.bind(this));
   }

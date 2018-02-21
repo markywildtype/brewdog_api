@@ -2,17 +2,29 @@ body {
   font-family: "Avenir", sans-serif;
 }
 
-h1 {
-  background-color: #77abff;
-  padding: 20px;
-  border-radius: 15px;
+#header-image {
+  width: 100%;
+}
+
+header {
+  width: 50%;
+}
+
+h5 {
+  position: relative;
+  margin-top: -10px;
+  text-align: right;
+}
+
+header {
+  margin-bottom: 50px;
 }
 
 article {
   height: auto;
   width: 250px;
   margin: 10px;
-  background-color: #77abff;
+  background-color: #30accc;
   padding: 20px;
   border-radius: 15px;
 }
