@@ -23,18 +23,25 @@ const requestComplete = function(){
 }
 
 //Data handling
-const populateBeerList = function(beer){
+const appendInfo = function(name, image){
   const beerList = document.getElementById('beer-list');
+  beerList.appendChild(name);
+  beerList.appendChild(image);
+}
+
+const populateBeerList = function(beer){
   const nameLi = document.createElement('li');
   nameLi.innerText = beer.name;
-  beerList.appendChild(nameLi);
+  const imageLi = document.createElement('img');
+  imageLi.src = beer.image_url
+  imageLi.height = 200;
+  appendInfo(nameLi, imageLi)
 }
 
 const getBeerInfo = function(array){
   array.forEach(function(beer){
     populateBeerList(beer);
   });
-
 
 
 }
