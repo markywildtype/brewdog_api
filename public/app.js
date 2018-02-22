@@ -5,13 +5,14 @@ const app = function () {
   const savedBeerJSON = localStorage.getItem('All beers');
   const savedBeerArray = JSON.parse(savedBeerJSON);
 
-  //beer picker dropdown
+//beer picker dropdown
   const beerPicker = function(){
     savedBeerArray.forEach(function(beer){
       const beerList = document.getElementById('beer-list');
       if(beer.name === this.value){
         beerList.innerHTML = " ";
         populateBeerList(beer);
+        populateBeerDetails(beer);
       } else if(this.value === "All our beers"){
         document.location.reload(false);
       }
@@ -74,7 +75,18 @@ const populateSelector = function(array){
   });
 }
 
-
+//Beer details
+const populateBeerDetails = function(beer){
+  console.log("Here be beer!");
+  const detailsArticle = document.createElement('article');
+  const beerList = document.getElementById('beer-list')
+  //create a ul element
+  //create li elements for ingredients
+  //add list items with beer attributes
+  //append list items to ul
+  //append ul to detailsArticle
+  beerList.appenChild(detailsArticle);
+}
 
 
 

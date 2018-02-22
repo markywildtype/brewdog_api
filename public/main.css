@@ -31,6 +31,8 @@ article {
   background-color: #30accc;
   padding: 20px;
   border-radius: 15px;
+  color: white;
+  font-weight: bold;
 }
 
 article p {
