@@ -12,6 +12,7 @@ const app = function () {
       if(beer.name === this.value){
         beerList.innerHTML = " ";
         populateBeerList(beer);
+        console.log(beer);
         populateBeerDetails(beer);
       } else if(this.value === "All our beers"){
         document.location.reload(false);
@@ -54,7 +55,8 @@ const populateBeerList = function(beer){
   const namePTag = document.createElement('p');
   namePTag.innerText = beer.name;
   const imageItem = document.createElement('img');
-  imageItem.src = beer.image_url
+  imageItem.src = beer.image_url;
+  imageItem.alt = beer.name;
   imageItem.height = 200;
   appendInfo(namePTag, imageItem)
 }
@@ -79,13 +81,18 @@ const populateSelector = function(array){
 const populateBeerDetails = function(beer){
   console.log("Here be beer!");
   const detailsArticle = document.createElement('article');
-  const beerList = document.getElementById('beer-list')
+  // detailsArticle.classlist.add('individual-details')
+  const beerList = document.getElementById('beer-list');
+  const pDescription = document.createElement('p');
+  pDescription.innerText = beer.description;
   //create a ul element
   //create li elements for ingredients
   //add list items with beer attributes
   //append list items to ul
   //append ul to detailsArticle
-  beerList.appenChild(detailsArticle);
+  detailsArticle.appendChild(pDescription)
+  beerList.appendChild(detailsArticle);
+  // beerList.appendChild(detailsArticle);
 }
 
 
